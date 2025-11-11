@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.css";
+import { useState } from "react";
+import Display from "./components/Display";
+import Keypad from "./components/Keypad";
 
 function App() {
+  const [display, setDisplay] = useState("0");
+
+  const handleButtonClick = (value) => {
+    if (value === "C") {
+      setDisplay("0");
+      return;
+    }
+
+    if (value === "DEL") {
+      setDisplay((old) => (old.length === 1 ? "0" : old.slice(0, -1)));
+      return;
+    }
+
+    // = احسب
+    if (value === "=") {
+      try {
+        const result = eval(display);
+        setDisplay(result.toString());
+      } catch {
+        setDisplay("Error");
+      }
+      return;
+    }
+
+    setDisplay((old) => {
+      if (old === "0" || old === "Error") return value;
+      return old + value;
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="cal-container">
+        <Display value={display} />
+        <Keypad onButtonClick={handleButtonClick} />
+      </div>
     </div>
   );
 }

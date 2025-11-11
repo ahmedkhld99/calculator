@@ -1,13 +1,144 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-hovering: #4b14e0ff;
+  --color-primary-backgroundElements: #1e0c5d;
+  --color-primary-headers: #7340ffff;
+  --color-primary-elements: #100b1eb2;
+  --color-primary-background: #060010;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: white;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary-background);
+}
+
+.display-container {
+  position: relative;
+  width: 100%;
+}
+
+.cal-container {
+  width: 280px;
+  height: 400px;
+  background-color: white;
+  box-shadow: inset 0 0 10px 0px black;
+  border-radius: 15px;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-cont {
+  background-color: var(--color-primary-background);
+  width: 100%;
+  height: 110px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
+  overflow: hidden;
+}
+
+.display-container .grid-cont div {
+  text-align: center;
+  border: solid 0.5px #29263080;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.display-container input {
+  cursor: default;
+  position: absolute;
+  top: 5pt;
+  left: 5pt;
+  width: 282px;
+  height: 93px;
+  border: unset;
+  background: transparent;
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+  outline: unset;
+}
+
+.keypad {
+  display: grid;
+  width: 100%;
+  height: 250px;
+  justify-content: space-between;
+  margin: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+.keypad button {
+  border-radius: 50%;
+  border: unset;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: unset;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.keypad button:hover {
+  transform: translateY(-0.5px) scale(1);
+}
+
+.keypad button:nth-child(1) {
+  grid-column: 1 / 3;
+  background-color: var(--color-primary-backgroundElements);
+  border-radius: 15px;
+}
+
+.keypad button:nth-child(2),
+.keypad button:nth-child(3),
+.keypad button:nth-child(4),
+.keypad button:nth-child(9),
+.keypad button:nth-child(14),
+.keypad button:nth-child(17),
+.keypad button:nth-child(18) {
+  background-color: var(--color-primary-backgroundElements);
+}
+.keypad button:nth-child(17) {
+  font-size: 25px;
+}
+
+.keypad button:nth-child(5),
+.keypad button:nth-child(6),
+.keypad button:nth-child(7),
+.keypad button:nth-child(8),
+.keypad button:nth-child(10),
+.keypad button:nth-child(11),
+.keypad button:nth-child(12),
+.keypad button:nth-child(13),
+.keypad button:nth-child(15),
+.keypad button:nth-child(16) {
+  background-color: #100b1eb2;
+}
+
+.keypad button:nth-child(18) {
+  border-radius: 15px;
+  grid-column: 4/6;
 }
