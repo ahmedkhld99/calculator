@@ -17,7 +17,6 @@ function App() {
       return;
     }
 
-    // = احسب
     if (value === "=") {
       try {
         const result = eval(display);
