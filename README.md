@@ -1,4 +1,3 @@
-View This Project on: https://calculator-le79.vercel.app/
 
 
 # Getting Started with Create React App
